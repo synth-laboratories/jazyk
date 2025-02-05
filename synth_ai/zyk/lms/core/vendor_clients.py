@@ -1,7 +1,7 @@
 import re
 from typing import Any, List, Pattern
 
-from zyk.lms.core.all import (
+from synth_ai.zyk.lms.core.all import (
     AnthropicClient,
     DeepSeekClient,
     GeminiClient,

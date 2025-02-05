@@ -2011,6 +2011,39 @@ wheels = [
 ]
 
 [[package]]
+name = "synth-ai"
+version = "0.1.0.dev4"
+source = { editable = "." }
+dependencies = [
+    { name = "anthropic" },
+    { name = "backoff" },
+    { name = "datasets" },
+    { name = "diskcache" },
+    { name = "google" },
+    { name = "google-generativeai" },
+    { name = "langfuse" },
+    { name = "openai" },
+    { name = "pydantic" },
+    { name = "synth-sdk" },
+    { name = "together" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "anthropic", specifier = ">=0.34.2" },
+    { name = "backoff", specifier = ">=2.2.1" },
+    { name = "datasets", specifier = ">=3.2.0" },
+    { name = "diskcache" },
+    { name = "google", specifier = ">=3.0.0" },
+    { name = "google-generativeai", specifier = ">=0.8.1" },
+    { name = "langfuse", specifier = ">=2.56.1" },
+    { name = "openai" },
+    { name = "pydantic" },
+    { name = "synth-sdk", specifier = ">=0.3.0" },
+    { name = "together", specifier = ">=1.2.12" },
+]
+
+[[package]]
 name = "synth-sdk"
 version = "0.3.0"
 source = { registry = "https://pypi.org/simple" }
@@ -2405,37 +2438,4 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/3f/50/bad581df71744867e9468ebd0bcd6505de3b275e06f202c2cb016e3ff56f/zipp-3.21.0.tar.gz", hash = "sha256:2c9958f6430a2040341a52eb608ed6dd93ef4392e02ffe219417c1b28b5dd1f4", size = 24545 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/b7/1a/7e4798e9339adc931158c9d69ecc34f5e6791489d469f5e50ec15e35f458/zipp-3.21.0-py3-none-any.whl", hash = "sha256:ac1bbe05fd2991f160ebce24ffbac5f6d11d83dc90891255885223d42b3cd931", size = 9630 },
-]
-
-[[package]]
-name = "zyk"
-version = "0.2.53"
-source = { virtual = "." }
-dependencies = [
-    { name = "anthropic" },
-    { name = "backoff" },
-    { name = "datasets" },
-    { name = "diskcache" },
-    { name = "google" },
-    { name = "google-generativeai" },
-    { name = "langfuse" },
-    { name = "openai" },
-    { name = "pydantic" },
-    { name = "synth-sdk" },
-    { name = "together" },
-]
-
-[package.metadata]
-requires-dist = [
-    { name = "anthropic", specifier = ">=0.34.2" },
-    { name = "backoff", specifier = ">=2.2.1" },
-    { name = "datasets", specifier = ">=3.2.0" },
-    { name = "diskcache" },
-    { name = "google", specifier = ">=3.0.0" },
-    { name = "google-generativeai", specifier = ">=0.8.1" },
-    { name = "langfuse", specifier = ">=2.56.1" },
-    { name = "openai" },
-    { name = "pydantic" },
-    { name = "synth-sdk", specifier = "==0.3.0" },
-    { name = "together", specifier = ">=1.2.12" },
 ]

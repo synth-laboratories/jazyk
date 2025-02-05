@@ -7,10 +7,12 @@ import re
 import sys
 import time
 import uuid
-from typing import List, Dict
-from pydantic import BaseModel
+from typing import Dict, List
+
 import pytest
+from datasets import load_dataset
 from dotenv import load_dotenv
+from pydantic import BaseModel
 from synth_sdk.tracing.abstractions import (
     Dataset,
     RewardSignal,
@@ -21,8 +23,7 @@ from synth_sdk.tracing.decorators import get_tracing_config, trace_system_async
 from synth_sdk.tracing.upload import upload
 from synth_sdk.tracing.utils import get_system_id
 
-from datasets import load_dataset
-from zyk import LM
+from synth_ai.zyk import LM
 
 
 class HendryksMathBenchmark:
@@ -138,8 +139,10 @@ class TrivialHendryksMathAgent:
     async def plan(self, math_question: str) -> str:
         logger.debug("Starting plan method with trace decorator")
         try:
+
             class Plan(BaseModel):
                 content: str
+
             response = await self.lm.respond_async(
                 system_message="""You are an AI assisting a colleague in completing a mathematics problem.
 You will be given a mathematics problem statement. Your task is to create a detailed plan to solve the problem, 
@@ -153,7 +156,7 @@ Your plan should include:
 3. Definition of variables and known relationships
 4. A step-by-step approach to solving the problem
 5. Explanation of the reasoning behind each step""",
-                response_model=Plan
+                response_model=Plan,
             )
             logger.debug("Successfully got response from LM in plan method")
             return response.content
@@ -171,8 +174,10 @@ Your plan should include:
     async def execute(self, plan: str) -> str:
         logger.debug("Starting execute method with trace decorator")
         try:
+
             class Solution(BaseModel):
                 content: str
+
             response = await self.lm.respond_async(
                 system_message="""You are an AI mathematical problem-solving assistant.
 You will be given a solution plan. Your task is to implement this plan,

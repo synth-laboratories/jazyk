@@ -2,14 +2,14 @@ from typing import Any, Dict, List, Literal, Optional
 
 from pydantic import BaseModel, Field
 
-from zyk.lms.core.exceptions import StructuredOutputCoercionFailureException
-from zyk.lms.core.vendor_clients import (
+from synth_ai.zyk.lms.core.exceptions import StructuredOutputCoercionFailureException
+from synth_ai.zyk.lms.core.vendor_clients import (
     anthropic_naming_regexes,
     get_client,
     openai_naming_regexes,
 )
-from zyk.lms.structured_outputs.handler import StructuredOutputHandler
-from zyk.lms.vendors.base import VendorBase
+from synth_ai.zyk.lms.structured_outputs.handler import StructuredOutputHandler
+from synth_ai.zyk.lms.vendors.base import VendorBase
 
 
 def build_messages(
@@ -139,7 +139,7 @@ class LM:
                     use_ephemeral_cache_only=use_ephemeral_cache_only,
                 )
             except StructuredOutputCoercionFailureException:
-                #print("Falling back to backup handler")
+                # print("Falling back to backup handler")
                 return self.backup_structured_output_handler.call_sync(
                     messages,
                     model=self.model_name,
@@ -164,7 +164,7 @@ class LM:
         response_model: Optional[BaseModel] = None,
         use_ephemeral_cache_only: bool = False,
     ):
-        #"In respond_async")
+        # "In respond_async")
         assert (system_message is None) == (
             user_message is None
         ), "Must provide both system_message and user_message or neither"
@@ -179,7 +179,7 @@ class LM:
 
         if response_model:
             try:
-                #"Trying structured output handler")
+                # "Trying structured output handler")
                 return await self.structured_output_handler.call_async(
                     messages,
                     model=self.model_name,
@@ -188,7 +188,7 @@ class LM:
                     use_ephemeral_cache_only=use_ephemeral_cache_only,
                 )
             except StructuredOutputCoercionFailureException:
-                #print("Falling back to backup handler")
+                # print("Falling back to backup handler")
                 return await self.backup_structured_output_handler.call_async(
                     messages,
                     model=self.model_name,
@@ -197,7 +197,7 @@ class LM:
                     use_ephemeral_cache_only=use_ephemeral_cache_only,
                 )
         else:
-            #print("Calling API no response model")
+            # print("Calling API no response model")
             return await self.client._hit_api_async(
                 messages=messages,
                 model=self.model_name,

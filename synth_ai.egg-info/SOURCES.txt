@@ -7,3 +7,4 @@ synth_ai.egg-info/SOURCES.txt
 synth_ai.egg-info/dependency_links.txt
 synth_ai.egg-info/requires.txt
 synth_ai.egg-info/top_level.txt
+synth_ai/zyk/__init__.py
