@@ -68,6 +68,12 @@ def models():
             temperature=0.1,
             structured_output_mode="stringified_json",
         ),
+        "mistral-small-latest": LM(
+            model_name="mistral-small-latest",
+            formatting_model_name="gpt-4o-mini",
+            temperature=0.1,
+            structured_output_mode="stringified_json",
+        ),
     }
 
 

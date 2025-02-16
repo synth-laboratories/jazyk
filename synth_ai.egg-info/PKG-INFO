@@ -49,6 +49,8 @@ Requires-Dist: datasets>=3.2.0
 Requires-Dist: groq>=0.18.0
 Requires-Dist: pytest-timeout>=2.3.1
 Requires-Dist: lock>=2018.3.25.2110
+Requires-Dist: ollama>=0.4.7
+Requires-Dist: mistralai>=1.5.0
 Dynamic: author
 Dynamic: home-page
 

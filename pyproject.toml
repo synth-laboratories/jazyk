@@ -26,6 +26,8 @@ dependencies = [
     "groq>=0.18.0",
     "pytest-timeout>=2.3.1",
     "lock>=2018.3.25.2110",
+    "ollama>=0.4.7",
+    "mistralai>=1.5.0",
 ]
 requires-python = ">=3.10"
 

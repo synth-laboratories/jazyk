@@ -44,12 +44,14 @@ synth_ai/zyk/lms/vendors/retries.py
 synth_ai/zyk/lms/vendors/core/__init__.py
 synth_ai/zyk/lms/vendors/core/anthropic_api.py
 synth_ai/zyk/lms/vendors/core/gemini_api.py
+synth_ai/zyk/lms/vendors/core/mistral_api.py
 synth_ai/zyk/lms/vendors/core/openai_api.py
 synth_ai/zyk/lms/vendors/local/__init__.py
 synth_ai/zyk/lms/vendors/local/ollama.py
 synth_ai/zyk/lms/vendors/supported/__init__.py
 synth_ai/zyk/lms/vendors/supported/deepseek.py
 synth_ai/zyk/lms/vendors/supported/groq.py
+synth_ai/zyk/lms/vendors/supported/ollama.py
 synth_ai/zyk/lms/vendors/supported/together.py
 tests/test_agent.py
 tests/test_recursive_structured_outputs.py
