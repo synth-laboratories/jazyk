@@ -6,6 +6,7 @@ from synth_ai.zyk.lms.vendors.core.openai_api import (
 )
 from synth_ai.zyk.lms.vendors.supported.deepseek import DeepSeekAPI
 from synth_ai.zyk.lms.vendors.supported.together import TogetherAPI
+from synth_ai.zyk.lms.vendors.supported.groq import GroqAPI
 
 
 class OpenAIClient(OpenAIPrivate):
@@ -31,5 +32,10 @@ class DeepSeekClient(DeepSeekAPI):
 
 
 class TogetherClient(TogetherAPI):
+    def __init__(self):
+        super().__init__()
+
+
+class GroqClient(GroqAPI):
     def __init__(self):
         super().__init__()

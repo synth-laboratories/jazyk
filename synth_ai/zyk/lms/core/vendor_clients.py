@@ -8,6 +8,7 @@ from synth_ai.zyk.lms.core.all import (
     # OpenAIClient,
     OpenAIStructuredOutputClient,
     TogetherClient,
+    GroqAPI,
 )
 
 openai_naming_regexes: List[Pattern] = [
@@ -27,6 +28,11 @@ deepseek_naming_regexes: List[Pattern] = [
 ]
 together_naming_regexes: List[Pattern] = [
     re.compile(r"^.*\/.*$"),
+]
+
+groq_naming_regexes: List[Pattern] = [
+    re.compile(r"^llama-3.3-70b-versatile$"),
+    re.compile(r"^llama-3.1-8b-instant$"),
 ]
 
 
@@ -56,5 +62,7 @@ def get_client(
         return DeepSeekClient()
     elif any(regex.match(model_name) for regex in together_naming_regexes):
         return TogetherClient()
+    elif any(regex.match(model_name) for regex in groq_naming_regexes):
+        return GroqAPI()
     else:
         raise ValueError(f"Invalid model name: {model_name}")

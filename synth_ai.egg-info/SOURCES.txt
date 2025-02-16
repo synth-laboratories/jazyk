@@ -1,10 +1,13 @@
 LICENSE
 README.md
 pyproject.toml
-public_tests/synth_sdk.py
+setup.py
+private_tests/try_synth_sdk.py
 public_tests/test_agent.py
+public_tests/test_all_structured_outputs.py
 public_tests/test_recursive_structured_outputs.py
 public_tests/test_structured_outputs.py
+public_tests/test_synth_sdk.py
 synth_ai/__init__.py
 synth_ai.egg-info/PKG-INFO
 synth_ai.egg-info/SOURCES.txt
@@ -46,4 +49,8 @@ synth_ai/zyk/lms/vendors/local/__init__.py
 synth_ai/zyk/lms/vendors/local/ollama.py
 synth_ai/zyk/lms/vendors/supported/__init__.py
 synth_ai/zyk/lms/vendors/supported/deepseek.py
+synth_ai/zyk/lms/vendors/supported/groq.py
 synth_ai/zyk/lms/vendors/supported/together.py
+tests/test_agent.py
+tests/test_recursive_structured_outputs.py
+tests/test_structured_outputs.py

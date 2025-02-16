@@ -11,6 +11,8 @@ from synth_ai.zyk.lms.core.vendor_clients import (
 from synth_ai.zyk.lms.structured_outputs.handler import StructuredOutputHandler
 from synth_ai.zyk.lms.vendors.base import VendorBase
 
+REASONING_MODELS = ["deepseek-reasoner", "o1-mini", "o1-preview", "o1", "o3"]
+
 
 def build_messages(
     sys_msg: str,
@@ -105,7 +107,9 @@ class LM:
             "forced_json",
             {"max_retries": max_retries_dict.get(max_retries, 2)},
         )
-        self.lm_config = {"temperature": temperature}
+        # Override temperature to 1 for reasoning models
+        effective_temperature = 1.0 if model_name in REASONING_MODELS else temperature
+        self.lm_config = {"temperature": effective_temperature}
         self.model_name = model_name
 
     def respond_sync(
