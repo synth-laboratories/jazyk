@@ -34,6 +34,15 @@ together_naming_regexes: List[Pattern] = [
 groq_naming_regexes: List[Pattern] = [
     re.compile(r"^llama-3.3-70b-versatile$"),
     re.compile(r"^llama-3.1-8b-instant$"),
+    re.compile(r"^qwen-2.5-32b$"),
+    re.compile(r"^deepseek-r1-distill-qwen-32b$"),
+    re.compile(r"^deepseek-r1-distill-llama-70b-specdec$"),
+    re.compile(r"^deepseek-r1-distill-llama-70b$"),
+    re.compile(r"^llama-3.3-70b-specdec$"),
+    re.compile(r"^llama-3.2-1b-preview$"),
+    re.compile(r"^llama-3.2-3b-preview$"),
+    re.compile(r"^llama-3.2-11b-vision-preview$"),
+    re.compile(r"^llama-3.2-90b-vision-preview$"),
 ]
 
 mistral_naming_regexes: List[Pattern] = [
